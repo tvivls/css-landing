@@ -58,7 +58,7 @@ function Authorization() {
       <ImgWrapper>
         <ImageStyled
           src={authImg}
-          alt="Registration"
+          alt="Authorization"
         />
       </ImgWrapper>
     </AuthWrapper>
