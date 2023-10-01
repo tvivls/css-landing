@@ -1,22 +1,20 @@
-'use client'
+'use client';
 import {
   AuthWrapper, BorderButton, ButtonsWrapper,
   Form,
   FormWrapper, ImageStyled, ImgWrapper, InputsWrapper,
   InputWrapperGrid, Separator, StyledButton,
   StyledHeading,
-} from "@/styles/Auth";
-import Link from "next/link";
-import Image from "next/image";
-import authImg from "../../../public/authImg.svg";
-import appleImg from "../../../public/appleImg.svg";
-import googleImg from "../../../public/googleImg.svg";
-import PasswordInput from "@/components/PasswordInput";
-import {FormEvent, useState} from "react";
-import Input from "@/components/Input";
-import Checkbox from "@/components/Checkbox";
+} from '@/styledComponents/Auth';
+import Link from 'next/link';
+import Image from 'next/image';
+import PasswordInput from '@/components/PasswordInput';
+import {FormEvent, useState} from 'react';
+import Input from '@/components/Input';
+import Checkbox from '@/components/Checkbox';
+import {appleSVG, authSVG, googleSVG} from '../../../public/Images';
 
-interface FormErrors {
+export interface FormErrors {
   email?: string;
   password?: string;
   checkbox?: string;
@@ -55,6 +53,8 @@ function Registration() {
     if (Object.keys(newErrors).length === 0) handleClear();
   };
 
+  const fontColor = errors.password ? 'red' : '#697077';
+
   return (
     <AuthWrapper>
       <FormWrapper>
@@ -69,44 +69,44 @@ function Registration() {
           <InputWrapperGrid>
             <PasswordInput password={password} setPassword={setPassword}/>
             <label
-              style={{fontWeight: "400", fontSize: "12px", color: "#697077"}}>
+              style={{fontWeight: '400', fontSize: '12px', color: fontColor }}>
               Пароль должен содержать минимум 8 символов, строчные и прописные символы
             </label>
           </InputWrapperGrid>
-          {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
 
-          <Checkbox label="Согласен с политикой обработки персональных данных" type="checkbox" value={checkbox} onChange={() => setCheckbox(prevState => !prevState)}/>
+          <Checkbox label="Согласен с политикой обработки персональных данных" type="checkbox" checkboxValue={checkbox} onChange={() => setCheckbox(prevState => !prevState)}/>
           {errors.checkbox && <p style={{ color: 'red' }}>{errors.checkbox}</p>}
 
-          <StyledButton type="submit">Зарегистрироваться</StyledButton>
+          <Link href="/auth">
+            <StyledButton type="submit">Зарегистрироваться</StyledButton>
+          </Link>
         </Form>
 
         <ButtonsWrapper>
           <BorderButton type="button">
-            <Image style={{ marginRight: "10px", width: "20px", height: "20px"}} src={googleImg} alt="log in with Google"/>
+            <Image style={{ marginRight: '10px', width: '20px', height: '20px'}} src={googleSVG} alt="log in with Google"/>
             Вход с помощью Google
           </BorderButton>
           <BorderButton type="button">
-            <Image style={{width: "20px", height: "20px", marginRight: "10px"}} src={appleImg} alt="log in with Apple"/>
+            <Image style={{width: '20px', height: '20px', marginRight: '10px'}} src={appleSVG} alt="log in with Apple"/>
             Вход с помощью Apple
           </BorderButton>
         </ButtonsWrapper>
 
         <Separator />
 
-        <Link href={'/auth'} style={{color: "#001D6C", fontSize: "14px"}}>
+        <Link href="/auth" style={{color: '#001D6C', fontSize: '14px'}}>
           Уже есть аккаунт?
         </Link>
       </FormWrapper>
 
       <ImgWrapper>
         <ImageStyled
-          src={authImg}
+          src={authSVG}
           alt="Registration"
         />
       </ImgWrapper>
     </AuthWrapper>
   );
 }
-
 export default Registration;

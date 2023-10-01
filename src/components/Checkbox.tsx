@@ -1,11 +1,11 @@
-import {CheckboxWrapper, InputWrapperFlex} from "@/styles/Auth";
-import {InputProps} from "@/types";
+import {CheckboxWrapper, InputWrapperFlex} from '@/styledComponents/Auth';
+import {InputProps} from '@/types';
 
-function Checkbox({label, type, children, value, onChange}: InputProps) {
+function Checkbox({label, type, children, checkboxValue, onChange}: InputProps) {
   return (
     <CheckboxWrapper>
       <InputWrapperFlex>
-        <input type={type} checked={value as boolean} onChange={onChange}/>
+        <input type={type} checked={checkboxValue} onChange={onChange}/>
         <label>{label}</label>
       </InputWrapperFlex>
       {children}

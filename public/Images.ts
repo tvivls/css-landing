@@ -1,0 +1,10 @@
+export { default as antidepressantsSVG } from './antidepressants.svg';
+export { default as appleSVG } from './appleImg.svg';
+export { default as arrowRightSVG } from './arrowRight.svg';
+export { default as authSVG } from './authImg.svg';
+export { default as backgroundSVG } from './background.svg';
+export { default as dropdownSVG } from './dropdown.svg';
+export { default as evidenceBasedMedicineSVG } from './evidenceBasedMedicine.svg';
+export { default as firstAidKitSVG } from './firstAidKit.svg';
+export { default as googleSVG } from './googleImg.svg';
+export { default as headacheSVG } from './headache.svg';

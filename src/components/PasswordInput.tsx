@@ -1,15 +1,15 @@
-import {InputWrapperGrid, StyledIcon} from "@/styles/Auth";
-import {SetStateAction, useState} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import Input from "@/components/Input";
+import {InputWrapperGrid, StyledIcon} from '@/styledComponents/Auth';
+import {Dispatch, SetStateAction, useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+import Input from '@/components/Input';
 
-interface Props {
+interface PasswordInputProps {
   password: string;
-  setPassword: (value: SetStateAction<string>) => void;
+  setPassword:  Dispatch<SetStateAction<string>>;
 }
 
-function PasswordInput({password, setPassword}: Props) {
+function PasswordInput({password, setPassword}: PasswordInputProps) {
   const [visible, setVisible] = useState(false);
 
   return (
