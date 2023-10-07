@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {
   Card,
   CardContent,
@@ -6,22 +6,24 @@ import {
   Paragraph,
   StyledDetailImg,
   StyledImg,
-  Subtitle,
+  Subtitle, Wrapper,
 } from '@/styledComponents/Articles';
 import {arrowRightSVG} from '../../public/Images';
 
-function ArticleCard({subtitleText, paragraphText, img}: {subtitleText: string; paragraphText: string; img: string}) {
+function ArticleCard({subtitleText, paragraphText, img}: {subtitleText: string; paragraphText: string | ReactNode; img: string}) {
   return (
     <Card>
+      <Wrapper>
       <StyledImg src={img} alt=""/>
       <CardContent>
         <Subtitle>{subtitleText}</Subtitle>
         <Paragraph>{paragraphText}</Paragraph>
-        <DetailButton>
-          Подробнее
-          <StyledDetailImg src={arrowRightSVG} alt="Подробнее"/>
-        </DetailButton>
       </CardContent>
+      </Wrapper>
+      <DetailButton>
+        Подробнее
+        <StyledDetailImg src={arrowRightSVG} alt="Подробнее"/>
+      </DetailButton>
     </Card>
   );
 }
