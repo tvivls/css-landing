@@ -59,12 +59,17 @@ export const CardContent = styled.div`
   display: grid;
   gap: 16px;
   padding: 24px 16px;
-  max-width: 308px;
+  
+  @media(min-width: 1280px) {
+    max-width: 30vw;
+  }
 `;
 
 export const Card = styled.div`
   border: 1px solid #DDE1E6;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Subtitle = styled.p`
@@ -79,11 +84,10 @@ export const Paragraph = styled.p`
 `;
 
 export const DetailButton = styled.button`
-  width: 156px;
-  height: 48px;
   align-items: center;
   display: flex;
-  padding: 16px 8px 16px 0;
+  padding-bottom: 24px;
+  padding-left: 16px;
   background: #ffffff;
   color: #458FF6;
   font-weight: 500;
@@ -92,6 +96,9 @@ export const DetailButton = styled.button`
   letter-spacing: 0.5px;
   border: 0;
   gap: 16px;
+  margin-top: auto;
+  width: 100%;
+  border-radius: 8px;
 
   @media(max-width: 1024px) {
     font-size: 14px;
@@ -159,7 +166,7 @@ export const WhiteDot = styled.div`
   box-shadow: 0 0 20px 25px rgba(255, 255, 255, 1);
   -webkit-box-shadow: 0 0 20px 25px rgba(255, 255, 255, 1);
   -moz-box-shadow: 0 0 20px 25px rgba(255, 255, 255, 1);
-  animation: ${moveAlongFrame} 10s linear infinite;
+  animation: ${moveAlongFrame} 1s linear infinite;
   z-index: 1;
 `;
 

@@ -40,13 +40,13 @@ export const ImageStyled = styled(Image)`
 
 export const FormWrapper = styled.div`
   display: grid;
-  flex: 1 1 50%;
+  flex-basis: 50%;
   padding: 80px;
   gap: 48px;
   width: 100%;
 
   @media (max-width: 1024px) {
-    flex: 1 1 100%;
+    flex-basis: 100%;
     padding: 32px 16px;
     gap: 24px;
     order: 2;
@@ -82,8 +82,7 @@ export const InputWrapperFlex = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  height: 48px;
-  padding: 12px 16px;
+  padding: 15px 16px;
   width: 100%;
   background: #F2F4F8;
   color: black;
@@ -99,7 +98,7 @@ export const CheckboxWrapper = styled.div`
 
 export const StyledButton = styled.button`
   width: 100%;
-  height: 48px;
+  padding: 15px;
   background: #3385fd;
   border: 0;
   font-weight: 500;
@@ -124,7 +123,7 @@ export const ButtonsWrapper = styled.div`
 
 export const BorderButton = styled.button`
   width: 100%;
-  height: 48px;
+  padding: 15px;
   background: #ffffff;
   color: #458FF6;
   border: 2px solid #458FF6;
@@ -136,7 +135,7 @@ export const BorderButton = styled.button`
   align-items: center;
 
   &:hover {
-    border: 2px solid #1163e3;
+    border-color: #1163e3;
   }
 `;
 

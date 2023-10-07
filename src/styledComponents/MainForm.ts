@@ -68,7 +68,7 @@ export const StyledTextarea = styled.textarea`
   padding: 12px 16px;
   width: 100%;
   background: #F2F4F8;
-  color: black;
+  color: #000000;
   border: 0;
   box-shadow: 0 1px #C1C7CD;
 
@@ -79,8 +79,7 @@ export const StyledTextarea = styled.textarea`
 `;
 
 export const StyledButton = styled.button`
-  width: 140px;
-  height: 45px;
+  padding: 15px 25px;
   background: #458FF6;
   border: 0;
   font-weight: 500;
