@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AnimationDiv, Background,
   Card,
@@ -17,8 +16,14 @@ import {
 } from '../../public/Images';
 import {StyledButton} from '@/styledComponents/MainForm';
 import ArticleCard from '@/components/ArticleCard';
+import TextTruncate from '@/components/TextTruncate';
 
 function Articles() {
+  const headacheText = 'Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы ';
+  const migraineText = 'Информация для пациентов. Мигрень. Симптомы, диагностика, лечение, профилактика ';
+  const evidenceBasedMedicineText = 'Читая статьи, и получая консультации на нашем сайте, вы часто будете встречаться ';
+  const antidepressantsText = 'Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив ';
+
   return (
     <Container>
       <StyledDiv>
@@ -30,7 +35,7 @@ function Articles() {
       <StyledPicDiv>
         <ArticleCard
           subtitleText="Головная боль"
-          paragraphText="Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы ..."
+          paragraphText={(<TextTruncate text={headacheText} maxLength={93}/>)}
           img={headacheSVG}
         />
         <Card>
@@ -45,21 +50,21 @@ function Articles() {
           </Wrapper>
           <CardContent>
             <Subtitle>Мигрень</Subtitle>
-            <Paragraph>Информация для пациентов. Мигрень. Симптомы, диагностика, лечение, профилактика</Paragraph>
+            <Paragraph><TextTruncate text={migraineText} maxLength={79}/></Paragraph>
+          </CardContent>
             <DetailButton>
               Подробнее
               <StyledDetailImg src={arrowRightSVG} alt="Подробнее"/>
             </DetailButton>
-          </CardContent>
         </Card>
         <ArticleCard
           subtitleText="Доказательная медицина"
-          paragraphText="Читая статьи, и получая консультации на нашем сайте, вы часто будете встречаться..."
+          paragraphText={(<TextTruncate text={evidenceBasedMedicineText}/>)}
           img={evidenceBasedMedicineSVG}
         />
         <ArticleCard
           subtitleText="Антидепрессанты"
-          paragraphText="Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив..."
+          paragraphText={(<TextTruncate text={antidepressantsText} maxLength={82}/>)}
           img={antidepressantsSVG}
         />
       </StyledPicDiv>
