@@ -9,21 +9,28 @@ import {
 } from '@/styledComponents/Auth';
 import Link from 'next/link';
 import PasswordInput from '@/components/PasswordInput';
-import {useState} from 'react';
+import {FormEvent, useState} from 'react';
 import Input from '@/components/Input';
 import Checkbox from '@/components/Checkbox';
 import {appleSVG, authSVG, googleSVG} from '../../../public/Images';
+import {useRouter} from 'next/navigation';
 
 function Authorization() {
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkbox, setCheckbox] = useState(false);
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+  }
 
   return (
     <AuthWrapper>
       <FormWrapper>
         <StyledHeading>Вход</StyledHeading>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input type="email" label="Email" placeholder="example@email.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
           <PasswordInput password={password} setPassword={setPassword}/>
           <Checkbox label="Запомнить меня" type="checkbox" checkboxValue={checkbox} onChange={() => setCheckbox(prevState => !prevState)}>
@@ -32,9 +39,7 @@ function Authorization() {
             </Link>
           </Checkbox>
 
-          <Link href="/main">
-            <StyledButton type="submit">Вход</StyledButton>
-          </Link>
+          <StyledButton type="submit" onClick={() => router.push('/main')}>Вход</StyledButton>
         </Form>
 
         <ButtonsWrapper>

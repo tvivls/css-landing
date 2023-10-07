@@ -13,6 +13,8 @@ import {FormEvent, useState} from 'react';
 import Input from '@/components/Input';
 import Checkbox from '@/components/Checkbox';
 import {appleSVG, authSVG, googleSVG} from '../../../public/Images';
+import {emailRegex, passwordRegex} from '@/utils/consts';
+import {useRouter} from 'next/navigation';
 
 export interface FormErrors {
   email?: string;
@@ -21,6 +23,8 @@ export interface FormErrors {
 }
 
 function Registration() {
+  const router = useRouter();
+
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
@@ -41,9 +45,9 @@ function Registration() {
     e.preventDefault();
     const newErrors: FormErrors = {};
 
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email))
+    if (!emailRegex.test(email))
       newErrors.email = 'Введите корректный email';
-    if (password.length < 8 || !/[a-z]/.test(password) || !/[A-Z]/.test(password))
+    if (password.length < 8 || !passwordRegex.test(password))
       newErrors.password = 'Пароль должен содержать не менее 8 символов, строчные и прописные символы';
     if (!checkbox)
       newErrors.checkbox = 'Примите соглашение об обработке персональных данных';
@@ -77,9 +81,7 @@ function Registration() {
           <Checkbox label="Согласен с политикой обработки персональных данных" type="checkbox" checkboxValue={checkbox} onChange={() => setCheckbox(prevState => !prevState)}/>
           {errors.checkbox && <p style={{ color: 'red' }}>{errors.checkbox}</p>}
 
-          <Link href="/auth">
-            <StyledButton type="submit">Зарегистрироваться</StyledButton>
-          </Link>
+          <StyledButton type="submit" onClick={() => router.push('/auth')}>Зарегистрироваться</StyledButton>
         </Form>
 
         <ButtonsWrapper>
