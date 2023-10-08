@@ -16,13 +16,10 @@ import {
 } from '../../public/Images';
 import {StyledButton} from '@/styledComponents/MainForm';
 import ArticleCard from '@/components/ArticleCard';
-import TextTruncate from '@/components/TextTruncate';
+import textTruncate from '@/utils/textTruncate';
 
 function Articles() {
-  const headacheText = 'Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы ';
-  const migraineText = 'Информация для пациентов. Мигрень. Симптомы, диагностика, лечение, профилактика ';
-  const evidenceBasedMedicineText = 'Читая статьи, и получая консультации на нашем сайте, вы часто будете встречаться ';
-  const antidepressantsText = 'Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив ';
+  const migraineText = textTruncate('Информация для пациентов. Мигрень. Симптомы, диагностика, лечение, профилактика ');
 
   return (
     <Container>
@@ -35,7 +32,7 @@ function Articles() {
       <StyledPicDiv>
         <ArticleCard
           subtitleText="Головная боль"
-          paragraphText={(<TextTruncate text={headacheText} maxLength={93}/>)}
+          paragraphText='Врач-невролог из Москвы, Иванов Иван Иванович, отвечает на частые вопросы касающиеся проблемы '
           img={headacheSVG}
         />
         <Card>
@@ -50,7 +47,7 @@ function Articles() {
           </Wrapper>
           <CardContent>
             <Subtitle>Мигрень</Subtitle>
-            <Paragraph><TextTruncate text={migraineText} maxLength={79}/></Paragraph>
+            <Paragraph>{migraineText}</Paragraph>
           </CardContent>
             <DetailButton>
               Подробнее
@@ -59,12 +56,12 @@ function Articles() {
         </Card>
         <ArticleCard
           subtitleText="Доказательная медицина"
-          paragraphText={(<TextTruncate text={evidenceBasedMedicineText}/>)}
+          paragraphText='Читая статьи, и получая консультации на нашем сайте, вы часто будете встречаться '
           img={evidenceBasedMedicineSVG}
         />
         <ArticleCard
           subtitleText="Антидепрессанты"
-          paragraphText={(<TextTruncate text={antidepressantsText} maxLength={82}/>)}
+          paragraphText='Как показало исследование, антидепрессанты, особенно относящиеся к классе селектив '
           img={antidepressantsSVG}
         />
       </StyledPicDiv>
